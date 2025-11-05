@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Register — FlaskDemo{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card card-glass">
+    <div class="auth-head">
+      <h2>Create account</h2>
+      <p class="muted">Join quickly — this demo stores plain passwords for convenience (local only).</p>
+    </div>
+
+    <form method="post" action="{{ url_for('register') }}">
+      <div class="form-row">
+        <label class="form-label">Username</label>
+        <input class="form-control" name="username" placeholder="pick a username" required />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" name="password" placeholder="strong password" required />
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-user-plus me-1"></i> Create account</button>
+        <a class="btn btn-ghost" href="{{ url_for('login') }}">Already have an account?</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

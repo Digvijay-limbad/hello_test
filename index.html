@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Home — FlaskDemo{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <h1 class="hero-title">Unsecure Flask starter</h1>
+      <p class="hero-sub">demmo application to show mysql injection </p>
+
+      <div class="hero-cta">
+        {% if session.get('username') %}
+          <a class="btn btn-outline" href="{{ url_for('logout') }}">Sign out</a>
+        {% else %}
+          <a class="btn btn-primary" href="{{ url_for('register') }}">Get started</a>
+          <a class="btn btn-ghost" href="{{ url_for('login') }}">Sign in</a>
+        {% endif %}
+      </div>
+
+      <ul class="features">
+        <li><i class="fa-solid fa-lock"></i> non -Parameterized queries</li>
+        <li><i class="fa-solid fa-brain"></i> Safe learning demo</li>
+        <li><i class="fa-solid fa-paint-brush"></i> </li>
+      </ul>
+    </div>
+
+    <div class="hero-right">
+      <div class="card card-glass">
+        <div class="card-header">
+          <div class="status-dot online"></div>
+          <strong>Demo account</strong>
+        </div>
+
+        <div class="card-body">
+          <p class="muted">Try a demo login quickly</p>
+          <div class="demo-creds">
+            <div><strong>admin</strong></div>
+            <div class="muted small">admin123</div>
+          </div>
+          <a href="{{ url_for('login') }}" class="btn btn-block btn-primary mt-3">Sign in as demo</a>
+        </div>
+      </div>
+
+      <div class="art" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

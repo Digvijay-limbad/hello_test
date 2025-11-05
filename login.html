@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Login — FlaskDemo{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card card-glass">
+    <div class="auth-head">
+      <h2>Welcome back</h2>
+      <p class="muted">Sign in to continue</p>
+    </div>
+
+    <form method="post" action="{{ url_for('login') }}">
+      <div class="form-row">
+        <label class="form-label">Username</label>
+        <input class="form-control" name="username" placeholder="your username" required />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" name="password" placeholder="••••••••" required />
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-right-to-bracket me-1"></i> Sign in</button>
+        <a class="btn btn-ghost" href="{{ url_for('register') }}">Create account</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
